@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Options Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Source+Sans+3:wght@400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Source Sans 3', sans-serif; background: #1a1a2e; color: #fff; padding: 2rem; }
+h1 { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: .1em; color: #c9a84c; margin-bottom: 1.5rem; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.card { border-radius: 8px; overflow: hidden; border: 2px solid transparent; cursor: pointer; transition: border-color .2s; }
+.card:hover { border-color: #c9a84c; }
+.card.selected { border-color: #c9a84c; }
+.preview {
+    padding: 1.5rem;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+.mock-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: .5rem; }
+.mock-logo { font-family: 'Cinzel', serif; font-size: .85rem; font-weight: 600; }
+.mock-links { display: flex; gap: .75rem; }
+.mock-link { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .05em; text-transform: uppercase; }
+.mock-label { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .12em; text-transform: uppercase; }
+.mock-title { font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 500; line-height: 1.2; }
+.mock-title em { font-style: normal; }
+.mock-body { font-size: .78rem; line-height: 1.5; }
+.mock-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .5rem; border-radius: 2px; margin-top: .3rem; }
+.info { background: #111; padding: .75rem 1rem; }
+.info-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: .4rem; }
+.opt-letter { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; color: #c9a84c; }
+.opt-name { font-size: .82rem; font-weight: 600; color: #edf0f8; }
+.opt-desc { font-size: .72rem; color: #8a9ab8; }
+.pick-btn {
+    display: block; width: 100%; margin-top: .6rem;
+    background: transparent; border: 1px solid #c9a84c; color: #c9a84c;
+    font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .08em;
+    text-transform: uppercase; padding: .4rem; cursor: pointer;
+    transition: background .2s;
+}
+.pick-btn:hover { background: rgba(201,168,76,.15); }
+</style>
+</head>
+<body>
+
+<h1>Light Mode Background Options — Pick One</h1>
+
+<div class="grid">
+
+  <!-- A -->
+  <div class="card" onclick="pick('A')">
+    <div class="preview" style="background:#f4f1ea;">
+      <div class="mock-nav">
+        <span class="mock-logo" style="color:#08111e">ABR</span>
+        <div class="mock-links">
+          <span class="mock-link" style="color:#4a5c72">About</span>
+          <span class="mock-link" style="color:#4a5c72">Research</span>
+          <span class="mock-link" style="color:#7a5810;border:1px solid #7a5810;padding:2px 6px;border-radius:2px">Contact</span>
+        </div>
+      </div>
+      <div class="mock-label" style="color:#7a5810">About</div>
+      <div class="mock-title" style="color:#08111e">Advancing <em style="color:#5c4008">intelligent</em> systems</div>
+      <div class="mock-body" style="color:#1e2e45">Presidential Research Fellow at Georgia Southern University, working in Health Explainable AI.</div>
+      <div class="mock-tag" style="background:rgba(122,88,16,.12);color:#7a5810">Explainable AI</div>
+    </div>
+    <div class="info">
+      <div class="info-top"><span class="opt-letter">A</span><span style="font-size:.65rem;color:#c9a84c">Current</span></div>
+      <div class="opt-name">Warm Parchment</div>
+      <div class="opt-desc">The existing warm beige — cozy but heavy</div>
+      <button class="pick-btn">Keep A</button>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="card" onclick="pick('B')">
+    <div class="preview" style="background:#f7f5f0;">
+      <div class="mock-nav">
+        <span class="mock-logo" style="color:#08111e">ABR</span>
+        <div class="mock-links">
+          <span class="mock-link" style="color:#4a5c72">About</span>
+          <span class="mock-link" style="color:#4a5c72">Research</span>
+          <span class="mock-link" style="color:#7a5810;border:1px solid #7a5810;padding:2px 6px;border-radius:2px">Contact</span>
+        </div>
+      </div>
+      <div class="mock-label" style="color:#7a5810">About</div>
+      <div class="mock-title" style="color:#08111e">Advancing <em style="color:#5c4008">intelligent</em> systems</div>
+      <div class="mock-body" style="color:#1e2e45">Presidential Research Fellow at Georgia Southern University, working in Health Explainable AI.</div>
+      <div class="mock-tag" style="background:rgba(122,88,16,.12);color:#7a5810">Explainable AI</div>
+    </div>
+    <div class="info">
+      <div class="info-top"><span class="opt-letter">B</span></div>
+      <div class="opt-name">Soft Ivory</div>
+      <div class="opt-desc">Lighter, cleaner — less yellow than A</div>
+      <button class="pick-btn">Apply B</button>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="card" onclick="pick('C')">
+    <div class="preview" style="background:#f3f4f6;">
+      <div class="mock-nav">
+        <span class="mock-logo" style="color:#08111e">ABR</span>
+        <div class="mock-links">
+          <span class="mock-link" style="color:#4a5c72">About</span>
+          <span class="mock-link" style="color:#4a5c72">Research</span>
+          <span class="mock-link" style="color:#7a5810;border:1px solid #7a5810;padding:2px 6px;border-radius:2px">Contact</span>
+        </div>
+      </div>
+      <div class="mock-label" style="color:#7a5810">About</div>
+      <div class="mock-title" style="color:#08111e">Advancing <em style="color:#5c4008">intelligent</em> systems</div>
+      <div class="mock-body" style="color:#1e2e45">Presidential Research Fellow at Georgia Southern University, working in Health Explainable AI.</div>
+      <div class="mock-tag" style="background:rgba(122,88,16,.12);color:#7a5810">Explainable AI</div>
+    </div>
+    <div class="info">
+      <div class="info-top"><span class="opt-letter">C</span></div>
+      <div class="opt-name">Cool Slate</div>
+      <div class="opt-desc">Neutral cool-grey — professional feel</div>
+      <button class="pick-btn">Apply C</button>
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="card" onclick="pick('D')">
+    <div class="preview" style="background:#fafaf8;">
+      <div class="mock-nav">
+        <span class="mock-logo" style="color:#08111e">ABR</span>
+        <div class="mock-links">
+          <span class="mock-link" style="color:#4a5c72">About</span>
+          <span class="mock-link" style="color:#4a5c72">Research</span>
+          <span class="mock-link" style="color:#7a5810;border:1px solid #7a5810;padding:2px 6px;border-radius:2px">Contact</span>
+        </div>
+      </div>
+      <div class="mock-label" style="color:#7a5810">About</div>
+      <div class="mock-title" style="color:#08111e">Advancing <em style="color:#5c4008">intelligent</em> systems</div>
+      <div class="mock-body" style="color:#1e2e45">Presidential Research Fellow at Georgia Southern University, working in Health Explainable AI.</div>
+      <div class="mock-tag" style="background:rgba(122,88,16,.12);color:#7a5810">Explainable AI</div>
+    </div>
+    <div class="info">
+      <div class="info-top"><span class="opt-letter">D</span></div>
+      <div class="opt-name">Near-White</div>
+      <div class="opt-desc">Almost white with a bare warm tint — crisp, modern</div>
+      <button class="pick-btn">Apply D</button>
+    </div>
+  </div>
+
+  <!-- E -->
+  <div class="card" onclick="pick('E')">
+    <div class="preview" style="background:#eef1f5;">
+      <div class="mock-nav">
+        <span class="mock-logo" style="color:#08111e">ABR</span>
+        <div class="mock-links">
+          <span class="mock-link" style="color:#4a5c72">About</span>
+          <span class="mock-link" style="color:#4a5c72">Research</span>
+          <span class="mock-link" style="color:#7a5810;border:1px solid #7a5810;padding:2px 6px;border-radius:2px">Contact</span>
+        </div>
+      </div>
+      <div class="mock-label" style="color:#7a5810">About</div>
+      <div class="mock-title" style="color:#08111e">Advancing <em style="color:#5c4008">intelligent</em> systems</div>
+      <div class="mock-body" style="color:#1e2e45">Presidential Research Fellow at Georgia Southern University, working in Health Explainable AI.</div>
+      <div class="mock-tag" style="background:rgba(122,88,16,.12);color:#7a5810">Explainable AI</div>
+    </div>
+    <div class="info">
+      <div class="info-top"><span class="opt-letter">E</span></div>
+      <div class="opt-name">Academic Blue-Grey</div>
+      <div class="opt-desc">Cool blue tint — scholarly, pairs with navy text</div>
+      <button class="pick-btn">Apply E</button>
+    </div>
+  </div>
+
+  <!-- F -->
+  <div class="card" onclick="pick('F')">
+    <div class="preview" style="background:#f5f1eb;">
+      <div class="mock-nav">
+        <span class="mock-logo" style="color:#08111e">ABR</span>
+        <div class="mock-links">
+          <span class="mock-link" style="color:#4a5c72">About</span>
+          <span class="mock-link" style="color:#4a5c72">Research</span>
+          <span class="mock-link" style="color:#7a5810;border:1px solid #7a5810;padding:2px 6px;border-radius:2px">Contact</span>
+        </div>
+      </div>
+      <div class="mock-label" style="color:#7a5810">About</div>
+      <div class="mock-title" style="color:#08111e">Advancing <em style="color:#5c4008">intelligent</em> systems</div>
+      <div class="mock-body" style="color:#1e2e45">Presidential Research Fellow at Georgia Southern University, working in Health Explainable AI.</div>
+      <div class="mock-tag" style="background:rgba(122,88,16,.12);color:#7a5810">Explainable AI</div>
+    </div>
+    <div class="info">
+      <div class="info-top"><span class="opt-letter">F</span></div>
+      <div class="opt-name">Aged Paper</div>
+      <div class="opt-desc">Warm honey-cream — journal / print publication feel</div>
+      <button class="pick-btn">Apply F</button>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center;margin-top:1.5rem;font-size:.75rem;color:#8a9ab8;font-family:'DM Mono',monospace;letter-spacing:.06em">
+  Each card shows your real fonts, text colors, and nav — just the background changes.
+</p>
+
+<script>
+function pick(letter) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  alert('You picked ' + letter + ' — tell Claude "Apply option ' + letter + '" in the chat to apply it.');
+}
+</script>
+</body>
+</html>

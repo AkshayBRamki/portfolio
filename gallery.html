@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gallery — Akshay Bhuvaneswari Ramakrishnan. Photos from research, conferences, and milestones.">
+    <title>Gallery — Akshay B. Ramakrishnan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .gallery-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .gi {
+            cursor: default;
+        }
+        .gi img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .6s var(--ease);
+        }
+        .gi:hover img {
+            transform: scale(1.04);
+        }
+        .gi-cap {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: .75rem 1rem;
+            background: linear-gradient(to top, rgba(7,12,24,.9), transparent);
+            font-family: var(--fm);
+            font-size: .6rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--t2);
+            opacity: 0;
+            transition: opacity .3s var(--ease);
+        }
+        .gi:hover .gi-cap {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div id="nav-root"></div>
+
+<section id="gallery" class="page-hero">
+    <div class="container">
+        <div class="slabel reveal">Gallery</div>
+        <h2 class="stitle reveal">Moments &amp; <em>milestones</em></h2>
+        <div class="gallery-grid reveal">
+
+            <!-- Spans 2 cols -->
+            <div class="gi">
+                <img src="Images/Gallery/Gallery%20(1).jpeg" alt="Johns Hopkins Whiting School of Engineering">
+                <div class="gi-cap">Johns Hopkins · Whiting School of Engineering</div>
+            </div>
+
+            <div class="gi">
+                <img src="Images/Gallery/Gallery%20(6).jpeg" alt="VinFuture Prize 2025, Hanoi">
+                <div class="gi-cap">VinFuture Prize 2025 · Hanoi, Vietnam</div>
+            </div>
+
+            <div class="gi">
+                <img src="Images/Gallery/Gallery%20(5).jpeg" alt="Research Collaboration">
+                <div class="gi-cap">Research Collaboration</div>
+            </div>
+
+            <div class="gi">
+                <img src="Images/Gallery/Gallery%20(4).jpeg" alt="Thuyloi University, Vietnam">
+                <div class="gi-cap">Thuyloi University · Hanoi, Vietnam</div>
+            </div>
+
+            <div class="gi">
+                <img src="Images/Gallery/Gallery%20(3).jpeg" alt="Georgia Southern University">
+                <div class="gi-cap">Georgia Southern University</div>
+            </div>
+
+            <div class="gi">
+                <img src="Images/Gallery/Gallery%20(2).jpeg" alt="Community Health Outreach">
+                <div class="gi-cap">Community Health Outreach</div>
+            </div>
+
+            <div class="gi">
+                <img src="Images/Gallery/Gallery%20(7).jpeg" alt="VinFuture Prize 2025 Networking">
+                <div class="gi-cap">VinFuture Prize 2025 · Networking</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script src="js/nav.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
