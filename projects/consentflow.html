@@ -247,7 +247,7 @@
             <span style="color:var(--t2)">ConsentFlow</span>
         </div>
 
-        <div class="slabel reveal">Healthcare · Full Stack · 2025</div>
+        <div class="slabel reveal">Healthcare · Full Stack · 2026</div>
         <h2 class="stitle reveal">ConsentFlow <em>Patient-Centric</em> Health Data Control</h2>
 
         <!-- Hero: pitch + arch image -->
@@ -257,8 +257,8 @@
                 <p>The project addresses a real gap in healthcare interoperability. Existing systems treat consent as a binary checkbox rather than a dynamic, revocable, patient-controlled permission layer. ConsentFlow models consent as a living document where patients can grant, restrict, and revoke access per provider, per data type, and per time window.</p>
 
                 <div class="cf-cta-bar">
-                    <span class="cf-status">In Development</span>
-                    <a href="#" class="btn-p" style="pointer-events:none;opacity:.5">GitHub (coming soon)</a>
+                    <span class="cf-status">Completed · 2026</span>
+                    <a href="https://github.com/AkshayBRamki/healthdata" target="_blank" rel="noopener" class="btn-p">View on GitHub</a>
                 </div>
 
                 <div style="margin-top:2rem">
@@ -397,13 +397,12 @@
 
         <!-- Limitations -->
         <div class="limits-box reveal" style="margin-top:4rem">
-            <h4>Known Limitations and Ongoing Work</h4>
+            <h4>Known Limitations</h4>
             <ul>
-                <li>Blockchain integration is currently an append-only PostgreSQL log; a distributed ledger (Hyperledger Fabric) is planned for production hardening.</li>
-                <li>AI risk-scoring model is rule-based at this stage; an ML-based anomaly detection layer is under development.</li>
-                <li>FHIR R4 mapping covers core resources (Consent, Patient, Practitioner); extended resource types (MedicationRequest, DiagnosticReport) are in progress.</li>
-                <li>Frontend is functional but pre-polished; a UX refinement pass is planned before public release.</li>
-                <li>GitHub repository will be made public upon institutional review completion.</li>
+                <li>Blockchain integration uses an append-only PostgreSQL audit log; a distributed ledger (Hyperledger Fabric) is scoped for a future hardening pass.</li>
+                <li>AI risk-scoring is currently rule-based; an ML anomaly detection layer is the natural next extension.</li>
+                <li>FHIR R4 mapping covers core resources (Consent, Patient, Practitioner); extended types such as MedicationRequest and DiagnosticReport are not yet mapped.</li>
+                <li>Frontend is functional and complete; a dedicated UX polish pass would be the next step before a production deployment.</li>
             </ul>
         </div>
 

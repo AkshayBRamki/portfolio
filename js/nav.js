@@ -3,8 +3,12 @@
   const saved = localStorage.getItem('theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
 
+  // Compute prefix for subdirectory pages (e.g. projects/consentflow.html needs ../)
+  const segments = window.location.pathname.split('/').filter(Boolean);
+  const prefix = segments.length > 1 ? '../'.repeat(segments.length - 1) : '';
+
   // Determine active page
-  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const path = segments[segments.length - 1] || 'index.html';
   const pages = {
     'index.html': '',
     'about.html': 'about',
@@ -33,27 +37,27 @@
 
     <div class="mnav" id="mnav">
       <span class="mnav-x" id="mnav-x">✕</span>
-      <a href="about.html">About</a>
-      <a href="research.html">Research</a>
-      <a href="publications.html">Publications</a>
-      <a href="workshops.html">Workshops</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="collaborators.html">Collaborators</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
+      <a href="${prefix}about.html">About</a>
+      <a href="${prefix}research.html">Research</a>
+      <a href="${prefix}publications.html">Publications</a>
+      <a href="${prefix}workshops.html">Workshops</a>
+      <a href="${prefix}gallery.html">Gallery</a>
+      <a href="${prefix}collaborators.html">Collaborators</a>
+      <a href="${prefix}projects.html">Projects</a>
+      <a href="${prefix}contact.html">Contact</a>
     </div>
 
     <nav id="mainnav">
-      <a href="index.html" class="nav-logo">ABR</a>
+      <a href="${prefix}index.html" class="nav-logo">ABR</a>
       <ul class="nav-links">
-        ${navLink('about.html', 'About', false)}
-        ${navLink('research.html', 'Research', false)}
-        ${navLink('publications.html', 'Publications', false)}
-        ${navLink('workshops.html', 'Workshops', false)}
-        ${navLink('gallery.html', 'Gallery', false)}
-        ${navLink('collaborators.html', 'Collaborators', false)}
-        ${navLink('projects.html', 'Projects', false)}
-        ${navLink('contact.html', 'Contact', true)}
+        ${navLink(prefix + 'about.html', 'About', false)}
+        ${navLink(prefix + 'research.html', 'Research', false)}
+        ${navLink(prefix + 'publications.html', 'Publications', false)}
+        ${navLink(prefix + 'workshops.html', 'Workshops', false)}
+        ${navLink(prefix + 'gallery.html', 'Gallery', false)}
+        ${navLink(prefix + 'collaborators.html', 'Collaborators', false)}
+        ${navLink(prefix + 'projects.html', 'Projects', false)}
+        ${navLink(prefix + 'contact.html', 'Contact', true)}
       </ul>
       <div style="display:flex;align-items:center;gap:.75rem">
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light / dark mode">
