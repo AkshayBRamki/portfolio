@@ -31,6 +31,7 @@
         <a href="workshops.html">Workshops</a>
         <a href="gallery.html">Gallery</a>
         <a href="collaborators.html">Collaborators</a>
+        <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="f-copy">© 2025 Akshay Bhuvaneswari Ramakrishnan · All rights reserved</div>

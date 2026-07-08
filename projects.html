@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects — Akshay Bhuvaneswari Ramakrishnan. ConsentFlow: a blockchain-backed patient consent management system for healthcare interoperability.">
+    <title>Projects — Akshay B. Ramakrishnan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        /* ── Project page layout ── */
+        .proj-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 5rem;
+        }
+        .proj-pitch {
+            padding-top: 1rem;
+        }
+        .proj-pitch p {
+            color: var(--t2);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+        .proj-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .pm-block {
+            border-left: 2px solid var(--border);
+            padding-left: 1rem;
+        }
+        .pm-label {
+            font-family: var(--fm);
+            font-size: .58rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--t3);
+            margin-bottom: .5rem;
+        }
+        .pm-val {
+            color: var(--t1);
+            font-size: .9rem;
+            line-height: 1.6;
+        }
+
+        /* ── Status & CTA bar ── */
+        .proj-cta-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.75rem;
+        }
+        .proj-status {
+            font-family: var(--fm);
+            font-size: .62rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--border);
+            padding: .35rem .75rem;
+            border-radius: 2px;
+        }
+
+        /* ── Arch preview image ── */
+        .proj-arch-img {
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            position: relative;
+            cursor: pointer;
+        }
+        .proj-arch-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform .6s var(--ease);
+        }
+        .proj-arch-img:hover img {
+            transform: scale(1.02);
+        }
+        .proj-arch-img .gi-cap {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: .6rem 1rem;
+            background: linear-gradient(to top, rgba(7,12,24,.88), transparent);
+            font-family: var(--fm);
+            font-size: .58rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--t2);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .proj-arch-img:hover .gi-cap {
+            opacity: 1;
+        }
+
+        /* ── Tech tags ── */
+        .proj-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+        .ptag {
+            font-family: var(--fm);
+            font-size: .6rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--t3);
+            border: 1px solid var(--border);
+            padding: .25rem .6rem;
+            border-radius: 2px;
+        }
+        .ptag.hi {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ── Screenshot tabs ── */
+        .ss-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+        .ss-tab {
+            font-family: var(--fm);
+            font-size: .65rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--t3);
+            padding: .6rem 1.25rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: color .2s, border-color .2s;
+            margin-bottom: -1px;
+        }
+        .ss-tab.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        .ss-panel {
+            display: none;
+        }
+        .ss-panel.active {
+            display: block;
+        }
+
+        /* ── Screenshot grid ── */
+        .ss-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        .ss-card {
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            cursor: pointer;
+            position: relative;
+            transition: border-color .3s;
+        }
+        .ss-card:hover {
+            border-color: var(--gold);
+        }
+        .ss-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform .5s var(--ease);
+        }
+        .ss-card:hover img {
+            transform: scale(1.03);
+        }
+        .ss-cap {
+            padding: .6rem .85rem;
+            font-family: var(--fm);
+            font-size: .58rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--t3);
+        }
+        .ss-card-wide {
+            grid-column: 1 / -1;
+        }
+        .ss-card-wide img {
+            height: 300px;
+        }
+
+        /* ── Feature list ── */
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .feat-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            transition: border-color .3s;
+        }
+        .feat-card:hover {
+            border-color: var(--gold);
+        }
+        .feat-card h4 {
+            font-family: var(--fd);
+            font-size: .9rem;
+            color: var(--t1);
+            margin-bottom: .6rem;
+        }
+        .feat-card p {
+            font-size: .88rem;
+            color: var(--t2);
+            line-height: 1.6;
+        }
+
+        /* ── Limitations callout ── */
+        .limits-box {
+            background: rgba(201,168,76,.07);
+            border: 1px solid rgba(201,168,76,.3);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+        }
+        .limits-box h4 {
+            font-family: var(--fm);
+            font-size: .62rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: .75rem;
+        }
+        .limits-box ul {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: var(--t2);
+            font-size: .9rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 900px) {
+            .proj-hero { grid-template-columns: 1fr; gap: 2rem; }
+            .feat-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .ss-grid { grid-template-columns: 1fr; }
+            .feat-grid { grid-template-columns: 1fr; }
+            .ss-card img { height: 180px; }
+            .ss-card-wide img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="nav-root"></div>
+
+<section id="projects" class="page-hero">
+    <div class="container">
+
+        <div class="slabel reveal">Projects</div>
+        <h2 class="stitle reveal">ConsentFlow — <em>Patient-Centric</em> Health Data Control</h2>
+
+        <!-- Hero: pitch + arch image -->
+        <div class="proj-hero">
+            <div class="proj-pitch reveal">
+                <p>ConsentFlow is a full-stack healthcare consent management platform built to give patients genuine ownership over their electronic health records. The system uses a microservices architecture with a dedicated AI service for risk assessment, a gateway API that enforces role-based access, and a blockchain-ready audit trail — ensuring that every consent grant, modification, or revocation is tamper-evident and time-stamped. Providers, administrators, and patients each operate through purpose-built dashboards, while an emergency access protocol allows clinicians to temporarily bypass active consent under strict logging constraints.</p>
+                <p>The project addresses a real gap in healthcare interoperability: existing systems treat consent as a binary checkbox rather than a dynamic, revocable, patient-controlled permission layer. ConsentFlow models consent as a living document — patients can grant, restrict, and revoke access per provider, per data type, and per time window.</p>
+
+                <div class="proj-cta-bar">
+                    <span class="proj-status">In Development</span>
+                    <a href="#" class="btn-p" style="pointer-events:none;opacity:.5">GitHub (coming soon)</a>
+                </div>
+
+                <div style="margin-top:2rem">
+                    <div class="pm-label" style="margin-bottom:.6rem">Tech Stack</div>
+                    <div class="proj-tags">
+                        <span class="ptag hi">FastAPI</span>
+                        <span class="ptag hi">React</span>
+                        <span class="ptag hi">PostgreSQL</span>
+                        <span class="ptag hi">Docker</span>
+                        <span class="ptag">Python 3.11</span>
+                        <span class="ptag">SQLAlchemy</span>
+                        <span class="ptag">JWT Auth</span>
+                        <span class="ptag">RBAC</span>
+                        <span class="ptag">FHIR R4</span>
+                        <span class="ptag">Blockchain Audit</span>
+                        <span class="ptag">Nginx Gateway</span>
+                        <span class="ptag">AI Risk Scoring</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture diagram (mainlanding / adminbg as hero visual) -->
+            <div class="proj-arch-img reveal d2" onclick="openCert(this.querySelector('img').src)">
+                <img src="Images/ConsentFlow/adminbg.png" alt="ConsentFlow audit trail dashboard">
+                <div class="gi-cap">Full Audit Trail · Admin Dashboard</div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="slabel reveal" style="margin-top:2rem">Features</div>
+        <h3 class="aw-title reveal">What makes it <em>different</em></h3>
+        <div class="feat-grid">
+            <div class="feat-card reveal">
+                <h4>Dynamic Consent Engine</h4>
+                <p>Patients grant or revoke access per-provider, per-data-type, and per-time-window — not a one-time checkbox. Every change is logged with a tamper-evident timestamp.</p>
+            </div>
+            <div class="feat-card reveal d1">
+                <h4>Role-Based Access Control</h4>
+                <p>Four distinct portals — Patient, Provider, Admin, and API Gateway — each enforcing least-privilege access with JWT-backed session tokens and RBAC middleware.</p>
+            </div>
+            <div class="feat-card reveal d2">
+                <h4>Emergency Override Protocol</h4>
+                <p>Clinicians can invoke a time-limited emergency bypass under active audit logging. The override window, reason, and provider identity are all immutably recorded.</p>
+            </div>
+            <div class="feat-card reveal">
+                <h4>AI Risk Scoring Service</h4>
+                <p>A dedicated FastAPI microservice assesses consent-request risk in real time — flagging unusual access patterns, bulk data requests, or off-hours provider activity.</p>
+            </div>
+            <div class="feat-card reveal d1">
+                <h4>FHIR R4 Interoperability</h4>
+                <p>Data is structured around FHIR R4 resources, making the platform compatible with existing EHR systems and national health information exchanges.</p>
+            </div>
+            <div class="feat-card reveal d2">
+                <h4>Blockchain Audit Trail</h4>
+                <p>Every consent lifecycle event is appended to an append-only, cryptographically chained audit log — providing regulators, patients, and auditors with a complete, uneditable history.</p>
+            </div>
+        </div>
+
+        <!-- Screenshot tabs -->
+        <div class="slabel reveal" style="margin-top:5rem">Screenshots</div>
+        <h3 class="aw-title reveal">System <em>in action</em></h3>
+
+        <div class="ss-tabs">
+            <button class="ss-tab active" data-panel="ss-patient">Patient</button>
+            <button class="ss-tab" data-panel="ss-provider">Provider</button>
+            <button class="ss-tab" data-panel="ss-admin">Admin</button>
+            <button class="ss-tab" data-panel="ss-api">API / Gateway</button>
+        </div>
+
+        <!-- Patient panel -->
+        <div class="ss-panel active" id="ss-patient">
+            <div class="ss-grid">
+                <div class="ss-card ss-card-wide" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/mainlanding.png" alt="Patient landing page" loading="lazy">
+                    <div class="ss-cap">Patient Landing · Home &amp; Navigation</div>
+                </div>
+                <div class="ss-card" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/grantconsentform.png" alt="Grant consent form" loading="lazy">
+                    <div class="ss-cap">Grant Consent Form</div>
+                </div>
+                <div class="ss-card" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/activeconcent.png" alt="Active consents view" loading="lazy">
+                    <div class="ss-cap">Active Consents Dashboard</div>
+                </div>
+                <div class="ss-card" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/landing-signin.png" alt="Sign-in page" loading="lazy">
+                    <div class="ss-cap">Authentication · Sign In</div>
+                </div>
+                <div class="ss-card" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/activeveiwrecord.png" alt="View active records" loading="lazy">
+                    <div class="ss-cap">Active Record View</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Provider panel -->
+        <div class="ss-panel" id="ss-provider">
+            <div class="ss-grid">
+                <div class="ss-card ss-card-wide" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/provider-dashboard.png" alt="Provider dashboard" loading="lazy">
+                    <div class="ss-cap">Provider Dashboard · Patient Consent Overview</div>
+                </div>
+                <div class="ss-card ss-card-wide" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/emergency2.png" alt="Emergency access protocol" loading="lazy">
+                    <div class="ss-cap">Emergency Access Override · Audit-Logged</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin panel -->
+        <div class="ss-panel" id="ss-admin">
+            <div class="ss-grid">
+                <div class="ss-card ss-card-wide" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/adminbg.png" alt="Admin audit trail" loading="lazy">
+                    <div class="ss-cap">Admin Dashboard · Full Audit Trail</div>
+                </div>
+                <div class="ss-card ss-card-wide" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/admin1.png" alt="Admin management view" loading="lazy">
+                    <div class="ss-cap">Admin · System Management</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API / Gateway panel -->
+        <div class="ss-panel" id="ss-api">
+            <div class="ss-grid">
+                <div class="ss-card" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/gw1.png" alt="API Gateway view 1" loading="lazy">
+                    <div class="ss-cap">API Gateway · Route Inspection</div>
+                </div>
+                <div class="ss-card" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/gw2.png" alt="API Gateway view 2" loading="lazy">
+                    <div class="ss-cap">API Gateway · Auth Middleware</div>
+                </div>
+                <div class="ss-card ss-card-wide" onclick="openCert(this.querySelector('img').src)">
+                    <img src="Images/ConsentFlow/cf1.png" alt="ConsentFlow API overview" loading="lazy">
+                    <div class="ss-cap">ConsentFlow API · Endpoint Map</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Limitations -->
+        <div class="limits-box reveal" style="margin-top:4rem">
+            <h4>Known Limitations &amp; Ongoing Work</h4>
+            <ul>
+                <li>Blockchain integration is currently an append-only PostgreSQL log; a distributed ledger (Hyperledger Fabric) is planned for production hardening.</li>
+                <li>AI risk-scoring model is rule-based at this stage; an ML-based anomaly detection layer is under development.</li>
+                <li>FHIR R4 mapping covers core resources (Consent, Patient, Practitioner); extended resource types (MedicationRequest, DiagnosticReport) are in progress.</li>
+                <li>Frontend is functional but pre-polished — UX refinement pass planned before public release.</li>
+                <li>GitHub repository will be made public upon institutional review completion.</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<script>
+// Screenshot tab switcher (projects.html only)
+(function () {
+  const tabs = document.querySelectorAll('.ss-tab');
+  if (!tabs.length) return;
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        const p = document.getElementById(t.dataset.panel);
+        if (p) p.classList.remove('active');
+      });
+      tab.classList.add('active');
+      const panel = document.getElementById(tab.dataset.panel);
+      if (panel) panel.classList.add('active');
+    });
+  });
+})();
+</script>
+
+<script src="js/nav.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

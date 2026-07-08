@@ -14,6 +14,7 @@
     'gallery.html': 'gallery',
     'collaborators.html': 'collaborators',
     'contact.html': 'contact',
+    'projects.html': 'projects',
   };
   const active = pages[path] !== undefined ? pages[path] : '';
 
@@ -38,6 +39,7 @@
       <a href="workshops.html">Workshops</a>
       <a href="gallery.html">Gallery</a>
       <a href="collaborators.html">Collaborators</a>
+      <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
     </div>
 
@@ -50,6 +52,7 @@
         ${navLink('workshops.html', 'Workshops', false)}
         ${navLink('gallery.html', 'Gallery', false)}
         ${navLink('collaborators.html', 'Collaborators', false)}
+        ${navLink('projects.html', 'Projects', false)}
         ${navLink('contact.html', 'Contact', true)}
       </ul>
       <div style="display:flex;align-items:center;gap:.75rem">
