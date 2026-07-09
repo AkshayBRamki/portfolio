@@ -1,6 +1,4 @@
 (function () {
-  const segments = window.location.pathname.split('/').filter(Boolean);
-  const prefix = segments.length > 1 ? '../'.repeat(segments.length - 1) : '';
   const emailSvg = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="3" width="13" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M1 4.5L7.5 9L14 4.5" stroke="currentColor" stroke-width="1"/></svg>`;
   const scholarSvg = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="5" r="3" stroke="currentColor" stroke-width="1"/><path d="M2 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" stroke-width="1"/></svg>`;
   const linkedinSvg = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="1" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1"/><path d="M4 7v5M4 5v.01M7 12V9c0-1 .5-2 2-2s2 1 2 2v3" stroke="currentColor" stroke-width="1"/></svg>`;
@@ -27,14 +25,14 @@
         </div>
       </div>
       <div class="f-nav" role="navigation" aria-label="Footer navigation">
-        <a href="${prefix}about.html">About</a>
-        <a href="${prefix}research.html">Research</a>
-        <a href="${prefix}publications.html">Publications</a>
-        <a href="${prefix}workshops.html">Workshops</a>
-        <a href="${prefix}gallery.html">Gallery</a>
-        <a href="${prefix}collaborators.html">Collaborators</a>
-        <a href="${prefix}projects.html">Projects</a>
-        <a href="${prefix}contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="collaborators.html">Collaborators</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
       </div>
       <div class="f-copy">© 2025 Akshay Bhuvaneswari Ramakrishnan · All rights reserved</div>
     </footer>
