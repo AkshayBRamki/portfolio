@@ -387,3 +387,73 @@ footer{padding:3.5rem 4rem 2rem;border-top:1px solid var(--border);display:grid;
 .mnav a{font-family:var(--fd);font-size:2rem;font-weight:300;color:var(--t2);transition:color .2s}
 .mnav a:hover{color:var(--gold)}
 .mnav-x{position:absolute;top:1.5rem;right:1.5rem;font-size:1.4rem;cursor:pointer;color:var(--t2)}
+
+/* =========================================
+   DEEP TECH GLASSMORPHISM OVERRIDE
+   ========================================= */
+
+/* 1. Modernize the color palette and fonts */
+:root {
+    --bg: #05070d; /* Deep dark void */
+    --bg2: rgba(255, 255, 255, 0.025); /* Frosted glass base */
+    --gold: #00e5ff; /* Tech Cyan */
+    --gold-l: #b24bf3; /* AI Violet */
+    --gold-d: rgba(0, 229, 255, 0.12);
+    --border: rgba(255, 255, 255, 0.08);
+    --border2: rgba(255, 255, 255, 0.03);
+    --t1: #f8fafc;
+    --t2: #94a3b8;
+    --t3: #64748b;
+    --fd: 'Source Sans 3', system-ui, sans-serif; /* Removes the old serif font */
+}
+
+/* 2. Add glowing ambient orbs to the background */
+body {
+    background-color: var(--bg);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(178, 75, 243, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(0, 80, 255, 0.05) 0%, transparent 60%);
+    background-attachment: fixed;
+}
+
+/* 3. Strip old solid backgrounds from main sections */
+section, footer, #about, #publications, #gallery, #contact, #recent, #books, .books-grid, .wcards, .research-list, .aw-list {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 4. Apply the Frosted Glass effect to all cards and panels */
+.rp, .book-card, .wcard, .cert-card, .news-card, .feat-card, .photo-tag, .photo-frame, .limits-box, .stat, .edu-item, nav.scrolled, .ss-card, .cc, .aw-item {
+    background: var(--bg2) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 12px; /* Smoothes out the sharp corners */
+}
+
+/* 5. Make hover states glow slightly */
+.rp:hover, .book-card:hover, .wcard:hover, .cert-card:hover, .news-card:hover, .feat-card:hover, .ss-card:hover, .cc:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(0, 229, 255, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 229, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+/* 6. Upgrade primary buttons to a sleek gradient */
+.btn-p {
+    background: linear-gradient(135deg, #b24bf3, #00e5ff) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+    border-radius: 6px;
+}
+.btn-p:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+}
+
+/* 7. Clean up specific UI elements */
+.slabel::before { background: linear-gradient(90deg, var(--gold), transparent); }
+.sprog { background: linear-gradient(90deg, var(--gold-l), var(--gold)); }
